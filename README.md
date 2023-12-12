@@ -1,2 +1,3 @@
 # waybar-clockify
-A waybar plugin showing Clockify status
+
+A waybar plugin showing Clockify status.
