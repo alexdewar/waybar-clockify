@@ -1,0 +1,18 @@
+[project]
+name = "waybar_clockify"
+version = "0.0.1"
+authors = [{ name = "Alex Dewar", email = "a.dewar@imperial.ac.uk" }]
+description = "A waybar plugin to show your Clockify status"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = ["clockify-api-client"]
+scripts = { waybar-clockify = "waybar_clockify:main" }
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
