@@ -13,6 +13,17 @@ classifiers = [
 dependencies = ["clockify-api-client"]
 scripts = { waybar-clockify = "waybar_clockify:main" }
 
+[tool.ruff]
+select = [
+    "D", # pydocstyle
+    "E", # pycodestyle
+    "F", # Pyflakes
+    "I", # isort
+]
+
+[tool.ruff.pydocstyle]
+convention = "google"
+
 [build-system]
 requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"

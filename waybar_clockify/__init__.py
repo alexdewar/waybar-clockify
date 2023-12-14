@@ -1,7 +1,9 @@
-from clockify_api_client.client import ClockifyAPIClient
+"""A script to output the currently running task on waybar."""
 import json
-from time import sleep
 import sys
+from time import sleep
+
+from clockify_api_client.client import ClockifyAPIClient
 
 API_URL = "api.clockify.me/v1"
 
@@ -9,6 +11,7 @@ API_URL = "api.clockify.me/v1"
 def get_project_name(
     client: ClockifyAPIClient, workspace_id: str, project_id: str | None
 ):
+    """Get the name of the project specified by workspace and project IDs."""
     if not project_id:
         return "(none)"
 
@@ -17,6 +20,7 @@ def get_project_name(
 
 
 def output_waybar(text: str, cls: str | None = None, **kwargs):
+    """Output text to waybar."""
     output = {"text": text, "tooltip": "Clockify"} | kwargs
     if cls:
         output["class"] = cls
@@ -25,6 +29,7 @@ def output_waybar(text: str, cls: str | None = None, **kwargs):
 
 
 def main() -> None:
+    """Main entry point of program."""
     client = ClockifyAPIClient().build(sys.argv[1], API_URL)
     workspaces = client.workspaces.get_workspaces()
     workspace_id = workspaces[0]["id"]  # TODO: CHECK
