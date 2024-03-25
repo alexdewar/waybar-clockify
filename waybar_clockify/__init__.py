@@ -1,4 +1,5 @@
 """A script to output the currently running task on waybar."""
+
 import json
 import sys
 from time import sleep
